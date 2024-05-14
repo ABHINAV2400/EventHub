@@ -37,7 +37,7 @@ export async function createEvent({ userId, event, path }: CreateEventParams) {
 
     const newEvent = await Event.create({ ...event, category: event.categoryId, organizer: userId })
     revalidatePath(path)
-
+    console.log(newEvent)
     return JSON.parse(JSON.stringify(newEvent))
   } catch (error) {
     handleError(error)
